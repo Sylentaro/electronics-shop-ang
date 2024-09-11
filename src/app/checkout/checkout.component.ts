@@ -44,6 +44,7 @@ export class CheckoutComponent implements OnInit{
 
     const order: Order = {
       products: this.cartService.items,
+      sum: this.cartService.getTotalSum(),
       date: new Date(),
       details: { ...this.formData }
     }

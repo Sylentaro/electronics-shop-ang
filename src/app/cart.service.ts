@@ -9,6 +9,7 @@ export interface CartItem {
 
 export interface Order {
     products: CartItem[];
+    sum: number,
     date: Date,
     details: any
 }
@@ -19,9 +20,8 @@ export interface Order {
 export class CartService {
     private cartKey = 'cart';
     private itemsSubject = new BehaviorSubject<CartItem[]>(this.loadCart());
-    items$ = this.itemsSubject.asObservable();
-    //items: CartItem[] = [];
-    
+    // items = this.itemsSubject.asObservable();
+  
     constructor() {}
     
     addToCart(p_product: Product) {
