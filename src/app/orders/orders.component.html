@@ -1,0 +1,25 @@
+<div id="slot">
+    <h2>Moje zamówienia</h2>
+
+    <div *ngIf="orders.length === 0">
+        <p>Brak zamówień w historii.</p>
+    </div>
+    
+    <div class="orders" *ngIf="orders.length > 0">
+        <div *ngFor="let item of orders">
+            <h3><b>Zamówienie z dnia:</b> {{ item.date | date: 'short' }}</h3>
+            <span>Dane osobowe: {{ item.details.firstName }} {{ item.details.lastName }}</span>
+            <span>
+                Adres: ul {{ item.details.street }} {{item.details.houseNumber}}<span *ngIf="item.details.apartmentNumber !== ''">/{{item.details.apartmentNumber}}</span>
+            </span>
+            <h4>Produkty: </h4>
+            <ul>
+                <li *ngFor="let element of item.products">
+                    {{ element.product.name }} - {{ element.product.price }} zł (Ilość: {{ element.quantity }})
+                </li>
+            </ul>
+            <hr />
+        </div>
+    </div>
+</div>
+

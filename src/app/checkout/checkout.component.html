@@ -1,0 +1,105 @@
+<div id="slot">
+    <a routerLink="/cart" *ngIf="!cartEmpty">Wróć do koszyka</a>
+    <a routerLink="/" *ngIf="cartEmpty">Wróć do katalogu</a>
+    <h2>Formularz zamówieniowy</h2>
+
+    <div class="empty" *ngIf="cartEmpty">
+        Twój koszyk jest pusty
+    </div>
+
+    <form (ngSubmit)="onSubmit()" *ngIf="!cartEmpty" #orderForm="ngForm">
+        <div>
+            <!-- Imię -->
+            <div>
+                <fieldset>
+                    <input id="firstName" name="firstName" placeholder=" " [(ngModel)]="formData.firstName" required />
+                    <label for="firstName">Imię</label>
+                </fieldset>
+
+                <div *ngIf="orderForm.submitted && !orderForm.controls?.['firstName']?.valid">
+                    Imię jest wymagane.
+                </div>
+            </div>
+            
+            <!-- Nazwisko -->
+            <div>
+                <fieldset>
+                    <input id="lastName" name="lastName" placeholder=" " [(ngModel)]="formData.lastName" required />
+                    <label for="lastName">Nazwisko</label>
+                </fieldset>
+
+                <div *ngIf="orderForm.submitted && !orderForm.controls?.['lastName']?.valid">
+                    Nazwisko jest wymagane.
+                </div>
+            </div>
+            
+            <!-- Telefon -->
+            <div>
+                <fieldset>
+                    <input id="phone" name="phone" placeholder=" " [(ngModel)]="formData.phone" required maxlength="9" pattern="^[0-9]{9}$" />
+                    <label for="phone">Nr tel.</label>
+                </fieldset>
+
+                <div *ngIf="orderForm.submitted && !orderForm.controls?.['phone']?.valid">
+                    Telefon (9-cio cyfrowy)
+                </div>
+            </div>
+            
+            <!-- Ulica -->
+            <div>
+                <fieldset>
+                    <input id="street" name="street" placeholder=" " [(ngModel)]="formData.street" required/>
+                    <label for="street">Ulica</label>
+                </fieldset>
+
+                <div *ngIf="orderForm.submitted && !orderForm.controls?.['street']?.valid">
+                    Ulica jest wymagana.
+                </div>
+            </div>
+            
+            <!-- Numer domu  -->
+            <div>
+                <fieldset>
+                    <input id="houseNumber" name="houseNumber" placeholder=" " [(ngModel)]="formData.houseNumber" required />
+                    <label for="houseNumber">Nr domu</label>
+                </fieldset>
+
+                <div *ngIf="orderForm.submitted && !orderForm.controls?.['houseNumber']?.valid">
+                    Nr domu jest wymagany.
+                </div>
+            </div>
+            
+            <!-- Numer lokalu -->
+            <div>
+                <fieldset>
+                    <input id="apartmentNumber" name="apartmentNumber" placeholder=" " [(ngModel)]="formData.apartmentNumber" required />
+                    <label for="apartmentNumber">Nr lokalu</label>
+                </fieldset>
+            </div>
+
+            <!-- Kod pocztowy -->
+            <div>
+                <fieldset>
+                    <input id="postalCode" name="postalCode" placeholder=" " [(ngModel)]="formData.postalCode" required pattern="^[0-9]{2}-[0-9]{3}$" />
+                    <label for="postalCode">Kod pocztowy</label>
+                </fieldset>
+
+                <div *ngIf="orderForm.submitted && !orderForm.controls?.['postalCode']?.valid">
+                   W formacie xx-xxx
+                </div>
+            </div>
+            
+            <!-- Miasto -->
+            <div>
+                <fieldset>
+                    <input id="city" name="city" placeholder=" " [(ngModel)]="formData.city" required />
+                    <label for="city">Miasto</label>
+                </fieldset>
+                <div *ngIf="orderForm.submitted && !orderForm.controls?.['city']?.valid">
+                    Miasto jest wymagane.
+                </div>
+            </div>
+            <button type="submit" class="colored">Złóż zamówienie</button>
+        </div>
+    </form>
+</div>

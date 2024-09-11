@@ -1,0 +1,30 @@
+<div id="slot">
+    <a routerLink="/">Wróć do katalogu</a>
+    <section>
+        <!-- <div *ngIf="product">
+            <img [src]="product.imageUrl" alt="{{ product.name }}"/>
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.longDesc }}</p>
+            <p>Cena {{ product.price }} zł</p>
+            <button (click)="addToCart(product)">Dodaj do koszyka</button>
+        </div> -->
+        <div *ngIf="product">
+            <div class="infoWrapper">
+                <div class="portrait">
+                    <img [src]="product.imageUrl" alt="{{product.name}}" />
+                </div>
+                <div class="textWrapper">
+                    <h2>{{ product.name }}</h2>
+                    <p>{{ product.shortDesc }}</p>
+                    <div class="descWrapper">
+                        <p><b>Opis:</b> {{ product.longDesc }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="addToCart">
+                <span>Cena: <b>{{ product.price }} zł</b></span>
+                <button (click)="addToCart(product)" class="colored">Dodaj do koszyka</button>
+            </div>
+        </div>
+    </section>
+</div>

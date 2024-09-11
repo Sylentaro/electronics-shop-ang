@@ -1,1 +1,184 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --bright-color: #f6f5f7;
+    --secondary-bright-color: #e4e4e4;
+    --bright-color-darker: #c4c2c2;
+    --primary-color: #f04444;
+    --primary-color-darker: #c73939;
+    --success-color: #17d440;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+b, h2 {
+    font-weight: 600;
+}
+
+#body {
+    height: 100vh;
+    background-color: var(--bright-color);
+    font-family: 'Poppins', sans-serif;
+    overflow-y: scroll;
+}
+
+#content {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#slot {
+    padding: 10px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 0.75rem;
+}
+
+nav {
+    z-index: 2;
+    width: 50%;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: var(--primary-color);
+    border-radius: 0.75rem;
+}
+
+.navOption {
+    display: flex;
+    align-items: center;
+    border-color: var(--primary-color);
+}
+
+.navOption:hover {
+    border-color: var(--bright-color);
+}
+
+.navOption > span:visited {
+    color: var(--bright-color);
+}
+
+.navOption > span {
+    color: var(--bright-color);
+}
+
+.navOption > svg {
+    width: 32px;
+}
+
+a {
+    text-decoration: none;
+    transition: 150ms ease all;
+    border-bottom: 2px solid;
+    border-color: var(--bright-color);
+}
+
+a:hover {
+    border-color: black;
+}
+
+a:visited {
+    color:black;
+}
+
+
+button, a.button {
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--bright-color);
+    color: black;
+    border: 1px gray solid;
+    border-radius: 12px;
+    padding: 8px;
+    font-size: inherit;
+    cursor: pointer;
+    transition: 150ms ease all;
+}
+
+button.colored, a.button.colored {
+    border: 0px;
+    background-color: var(--primary-color);
+    color: var(--bright-color);
+}
+button.colored:hover, a.button.colored:hover {
+    background-color: var(--primary-color-darker);
+}
+button:hover, a.button:hover{
+    background-color: var(--bright-color-darker);
+}
+button:active, a.button:active {
+    transform: scale(0.95);
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+
+/* Sections and Forms */
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.5rem;
+}
+ 
+fieldset {
+    border: none;
+    position: relative;
+}
+
+input, select {
+    border: 2px solid var(--secondary-bright-color);
+    background-color: var(--secondary-bright-color);
+    border-radius: 4px;
+    text-align: center;
+    height: 2rem;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);
+    background-color: var(--bright-color);
+}
+
+input:focus + label, 
+input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: smaller;
+    color: black;
+}
+
+fieldset label {
+    color: gray;
+    position: absolute;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s ease all;
+}

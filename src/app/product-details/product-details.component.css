@@ -1,0 +1,51 @@
+section {
+    margin-top: 6px;
+}
+
+section > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 15rem;
+}
+
+div.infoWrapper {
+    display: inherit;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 2rem;
+}
+
+div.infoWrapper div.textWrapper {
+    display: inherit;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+div.infoWrapper div.descWrapper {
+    margin-top: 5px;
+    width: 400px;
+}
+
+div.addToCart {
+    margin-top: 50px;
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.portrait:has(img) {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-bright-color);
+    height: 300px;
+    width: 300px;
+}
+
+button {
+    width: 160px;
+    height: 44px;
+}

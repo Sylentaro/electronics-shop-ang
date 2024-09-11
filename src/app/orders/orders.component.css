@@ -1,0 +1,14 @@
+#slot {
+    padding: 20px;
+}
+
+.orders {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+hr {
+    margin-top: 0.5rem;
+}

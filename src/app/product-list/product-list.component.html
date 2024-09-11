@@ -1,0 +1,43 @@
+<div id="slot">
+    <h2>Produkty</h2>
+    <section>
+        <fieldset>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            <input id="search" type="text" (input)="seekProducts($event)" placeholder=" " />
+            <label for="search">Szukaj Produktu:</label>
+        </fieldset>
+        
+        <div class="sort">
+            <label for="sortBy">Sortuj według:</label>
+            <select id="sortBy" (change)="sortHandler($event)">
+                <option value="id">Numer produktu</option>
+                <option value="name">Nazwa</option>
+                <option value="price">Cena</option>
+            </select>
+        </div>
+    </section>
+    <section>
+        <div class="productContainer">
+            <div class="product" *ngFor="let item of products">
+                <div class="infoWrapper">
+                    <div class="portrait">
+                        <img [src]="item.imageUrl" alt="{{item.name}}" />
+                    </div>
+                    <div class="textWrapper">
+                        <h2>{{ item.name }}</h2>
+                        <p>{{ item.shortDesc }}</p>
+                        <span>Cena: <b>{{ item.price }} zł</b></span>
+                    </div>
+                </div>
+                <!-- <a [routerLink]="['/product', item.id]">
+                    <button class="colored">
+                        Szczegóły
+                    </button>
+                </a> -->
+                <a [routerLink]="['/product', item.id]" class="button colored">
+                    Szczegóły
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
